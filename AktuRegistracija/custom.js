@@ -85,5 +85,17 @@ function send_values_to_db() {
         console.log("Something went wrong! - " + result); 
         
     }
+} 
+
+function focusFunction()
+{
+    // Focus = Changes the background color of input to yellow
+    document.getElementById("pasakuma_nosaukums").style.background = "yellow";
+}
+
+function blurFunction()
+{
+    // No focus = Changes the background color of input to red
+    document.getElementById("pasakuma_nosaukums").style.background = "none";
 }
     

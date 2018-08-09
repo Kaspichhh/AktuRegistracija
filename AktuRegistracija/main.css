@@ -235,6 +235,24 @@ iframe {
   padding-left: 5px;
 }
 
+.input-info {
+  font-family: Georgia, serif;
+  font-size: 14px;
+  color: lightcoral;
+  line-height: 1.5;
+  padding-left: 5px;
+  text-align:center; 
+  align-content:center;
+}
+ {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    color: #666666;
+    line-height: 1.5;
+    padding-left: 5px;
+}
+
+
 .input100 {
   display: block;
   width: 100%;

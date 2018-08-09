@@ -9,6 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="main.css"> 
 	<script type="text/javascript" src="custom.js"></script>
+    <script type="text/javascript" src="show_hide.js"></script>
 
 <!--===============================================================================================-->
 </head>
@@ -89,8 +90,9 @@
 					</div>
 
 					<div class="wrap-input100 validate-input">
+                            <span class="input-info" id="bilesu_veid_info" style="display:none">Biļetes veidlapas numurs biļetei, kas pirkta kasē –  septiņu melnas (iespējams arī zelta vai sarkanas) krāsas ciparu numurs biļetes apakšējās malas kreisajā pusē</span>
 							<span class="label-input100">Biļetes veidlapas numurs</span>
-							<input class="input100" type="text" name="name" placeholder="Biļetes veidlapas numurs..." id="ticket_numbers">
+							<input class="input100" type="text" name="name" placeholder="Biļetes veidlapas numurs..." id="ticket_numbers" onfocus="focusFunction_VEID()" onblur="blurFunction_VEID()">
 							<span class="focus-input100"></span>
 					</div>
 
