@@ -36,14 +36,17 @@ function validate_IBAN_number()
         }
         else
         {
-            document.getElementById("bank_number").style.backgroundColor = "rgba(255, 0, 0, 0.6)";
+            swal("Bankas konta lauks nav aizpildīts, vai arī ievadītie dati nav pareizi", "", "error");
+            document.getElementById("bank_number").classList.add("not-filled-border"); 
+            document.getElementById("bank_number").focus();
             console.log("Nav derīgs bankas konts");
 
         }
     }
     function onError(result)
     {
-        alert("Kaut kas nogāja greizi?");
+        alert("Kaut kas nogāja greizi?"); 
+        swal("Kaut kas nogāja greizi?", "", "warning");
     }
 }
 
@@ -73,29 +76,56 @@ function get_all_fields() {
     return dict;
 }
 
+
 function send_values_to_db() {
     var fields = get_all_fields();
     PageMethods.Send_Field_Data(fields, success, fail);
     function success(result)
-    {
-        console.log("Dati nosūtīti veiksmīgi! - " + result); 
+    {   
+        swal({
+            title: "Dati veiksmīgi nosūtīti!",
+            text: "Nospiežot 'OK' logs tiks aizvērts!",
+            icon: "success",
+            buttons: {
+                ok: {
+                    text: "Ok",
+                    value: "ok",
+                },
+            }
+        })
+            .then((value) => {
+                switch (value) {
+
+                    case "ok":
+                        close();
+                }
+            });
+        //alert("Dati nosūtīti veiksmīgi! - " + "Response from server: " + result);
+        console.log("Dati nosūtīti veiksmīgi! - " + result);
     }
     function fail(result)
-    {
+    {   
+        swal("Something went wrong!", result, "error");
+        //alert("Something went wrong! - " + "Response from server: " + result);
         console.log("Something went wrong! - " + result); 
-        
     }
 } 
 
-function focusFunction()
-{
-    // Focus = Changes the background color of input to yellow
-    document.getElementById("pasakuma_nosaukums").style.background = "yellow";
+//To show or hide info about what to write, when input field is focused
+
+function focusFunction_ID() {
+    document.getElementById("bilesu_id_info").style.display = "block";
 }
 
-function blurFunction()
-{
-    // No focus = Changes the background color of input to red
-    document.getElementById("pasakuma_nosaukums").style.background = "none";
+function blurFunction_ID() {
+    document.getElementById("bilesu_id_info").style.display = "none";
 }
-    
+
+
+function focusFunction_VEID() {
+    document.getElementById("bilesu_veid_info").style.display = "block";
+}
+
+function blurFunction_VEID() {
+    document.getElementById("bilesu_veid_info").style.display = "none";
+}    

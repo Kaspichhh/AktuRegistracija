@@ -2,21 +2,21 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head runat="server">
 <title>Biļešu Serviss</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="main.css"> 
-	<script type="text/javascript" src="custom.js"></script>
-    <script type="text/javascript" src="show_hide.js"></script>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="main.css"/>
+	<script type="text/javascript" src="js.js"></script> 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!--===============================================================================================-->
 </head>
 <body>
     <form runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePageMethods="true"></asp:ScriptManager>
-
+    
 	<div class="container-contact100" id="formas_lauks">
 		<div class="wrap-contact100">
 			<form class="contact100-form validate-form">
@@ -85,15 +85,16 @@
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Biļetes ID numurs</span>
-							<input class="input100" type="text" name="name" placeholder="Biļetes ID numurs..." id="id_numbers">
+							<input class="input100" type="text" name="name" placeholder="Biļetes ID numurs..." id="id_numbers" onfocus="focusFunction_ID()" onblur="blurFunction_ID()"> 
+                            <span class="info" id="bilesu_id_info" style="display:none">ID numurs – astoņu vai deviņu melnas krāsas ciparu numurs biļetes augšējās malas kreisajā pusē</span>
 							<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
-                            <span class="input-info" id="bilesu_veid_info" style="display:none">Biļetes veidlapas numurs biļetei, kas pirkta kasē –  septiņu melnas (iespējams arī zelta vai sarkanas) krāsas ciparu numurs biļetes apakšējās malas kreisajā pusē</span>
 							<span class="label-input100">Biļetes veidlapas numurs</span>
 							<input class="input100" type="text" name="name" placeholder="Biļetes veidlapas numurs..." id="ticket_numbers" onfocus="focusFunction_VEID()" onblur="blurFunction_VEID()">
-							<span class="focus-input100"></span>
+						    <span class="info" id="bilesu_veid_info" style="display:none">Biļetes veidlapas numurs biļetei, kas pirkta kasē –  septiņu melnas (iespējams arī zelta vai sarkanas) krāsas ciparu numurs biļetes apakšējās malas kreisajā pusē</span>	
+                        <span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
@@ -151,6 +152,8 @@
 							  </div>
 							</div>
 						  </div>
+                
+
 		</div>
 	</div>
 
