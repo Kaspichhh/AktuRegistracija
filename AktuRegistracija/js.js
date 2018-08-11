@@ -82,30 +82,37 @@ function send_values_to_db() {
     PageMethods.Send_Field_Data(fields, success, fail);
     function success(result)
     {   
-        swal({
-            title: "Dati veiksmīgi nosūtīti!",
-            text: "Nospiežot 'OK' logs tiks aizvērts!",
-            icon: "success",
-            buttons: {
-                ok: {
-                    text: "Ok",
-                    value: "ok",
-                },
-            }
-        })
-            .then((value) => {
-                switch (value) {
-
-                    case "ok":
-                        close();
+        if (result === true) {
+            swal({
+                title: "Dati veiksmīgi nosūtīti!",
+                text: "Nospiežot 'OK' logs tiks aizvērts!",
+                icon: "success",
+                buttons: {
+                    ok: {
+                        text: "Ok",
+                        value: "ok",
+                    },
                 }
-            });
-        //alert("Dati nosūtīti veiksmīgi! - " + "Response from server: " + result);
-        console.log("Dati nosūtīti veiksmīgi! - " + result);
+            })
+                .then((value) => {
+                    switch (value) {
+
+                        case "ok":
+                            close();
+                    }
+                });
+            //alert("Dati nosūtīti veiksmīgi! - " + "Response from server: " + result);
+            console.log("Dati nosūtīti veiksmīgi! - " + result);
+        }
+        else
+        {
+            fail(result);
+        }
+
     }
     function fail(result)
     {   
-        swal("Something went wrong!", result, "error");
+        swal("Something went wrong!", "Try again later", "error"); 
         //alert("Something went wrong! - " + "Response from server: " + result);
         console.log("Something went wrong! - " + result); 
     }
