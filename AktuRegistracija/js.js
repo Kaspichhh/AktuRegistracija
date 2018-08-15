@@ -45,15 +45,38 @@ function validate_IBAN_number()
     }
     function onError(result)
     {
-        alert("Kaut kas nogāja greizi?"); 
-        swal("Kaut kas nogāja greizi?", "", "warning");
+        swal("Something went wrong!", "Try again later!", "error");
+        console.log("Errors IBAN validate");
     }
 }
 
 function nosutam_datus()
 {
     hide_modal();
-    validate_IBAN_number();
+    var email = document.getElementById("kontakti_epasts").value;
+    PageMethods.IsEmail(email, onSuc, onErr);
+    function onSuc(result)
+    {   
+        if (result === true) {
+            console.log("Epasts ir derīgs");
+            document.getElementById("kontakti_epasts").classList.remove("not-filled-border"); 
+            validate_IBAN_number();
+        }
+        else
+        {
+            swal("Epasta adrese ievadīta neprecīzi!", "", "error");
+            document.getElementById("kontakti_epasts").classList.add("not-filled-border");
+            document.getElementById("kontakti_epasts").focus();
+            console.log("Epasta adrese ievadīta neprecīzi!");
+        }
+
+    }
+    function onErr(result)
+    {
+        swal("Something went wrong!", "Try again later!", "error");
+        console.log("Errors Email Checks");
+    }
+
 }
 
 function get_all_fields() {
@@ -62,30 +85,31 @@ function get_all_fields() {
     dict[1] = document.getElementById("pasakuma_datums").value;
     dict[2] = document.getElementById("vards_uzvards").value;
     dict[3] = document.getElementById("personas_kods").value;
-    dict[4] = document.getElementById("kontakti").value;
-    dict[5] = document.getElementById("bank_number").value;
-    dict[6] = document.getElementById("swift_code").value;
-    dict[7] = document.getElementById("bank_name").value;
-    dict[8] = document.getElementById("ticket_price").value;
-    dict[9] = document.getElementById("id_numbers").value;
-    dict[10] = document.getElementById("ticket_numbers").value;
-    dict[11] = document.getElementById("date_of_purchase").value;
-    dict[12] = document.getElementById("Select1").value;
-    dict[13] = document.getElementById("tirdz_viet_nos").value;
-    dict[14] = document.getElementById("other_info").value;
+    dict[4] = document.getElementById("kontakti_epasts").value;
+    dict[5] = document.getElementById("kontakti_tel").value;
+    dict[6] = document.getElementById("bank_number").value;
+    dict[7] = document.getElementById("swift_code").value;
+    dict[8] = document.getElementById("bank_name").value;
+    dict[9] = document.getElementById("ticket_price").value;
+    dict[10] = document.getElementById("id_numbers").value;
+    dict[11] = document.getElementById("ticket_numbers").value;
+    dict[12] = document.getElementById("date_of_purchase").value;
+    dict[13] = document.getElementById("Select1").value;
+    dict[14] = document.getElementById("tirdz_viet_nos").value;
+    dict[15]= document.getElementById("other_info").value;
     return dict;
 }
 
 
 function send_values_to_db() {
     var fields = get_all_fields();
-    PageMethods.Send_Field_Data(fields, success, fail);
+    PageMethods.Send_Field_Data(fields,fields["4"], success, fail);
     function success(result)
     {   
         if (result === true) {
             swal({
                 title: "Dati veiksmīgi nosūtīti!",
-                text: "Nospiežot 'OK' logs tiks aizvērts!",
+                text: "Apstiprinājuma epasts nosūtīts uz: " + fields["4"],
                 icon: "success",
                 buttons: {
                     ok: {
@@ -101,7 +125,6 @@ function send_values_to_db() {
                             close();
                     }
                 });
-            //alert("Dati nosūtīti veiksmīgi! - " + "Response from server: " + result);
             console.log("Dati nosūtīti veiksmīgi! - " + result);
         }
         else
@@ -113,7 +136,6 @@ function send_values_to_db() {
     function fail(result)
     {   
         swal("Something went wrong!", "Try again later", "error"); 
-        //alert("Something went wrong! - " + "Response from server: " + result);
         console.log("Something went wrong! - " + result); 
     }
 } 

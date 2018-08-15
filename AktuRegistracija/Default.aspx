@@ -9,7 +9,6 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" type="text/css" href="main.css"/>
 	<script type="text/javascript" src="js.js"></script> 
-    <%--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>--%>
     <script type="text/javascript" src="sweetalert.min.js"></script> 
 
 <!--===============================================================================================-->
@@ -50,11 +49,16 @@
 						<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input">
-						<span class="label-input100">E-pasts/ telefona numurs</span>
-						<input class="input100" type="text" name="name" placeholder="Jūsu e-pasts/ telefona numurs..." id="kontakti">
+						<span class="label-input100">E-pasts</span>
+						<input class="input100" type="text" name="name" placeholder="Jūsu e-pasts..." id="kontakti_epasts">
 						<span class="focus-input100"></span>
 				</div>
 
+                		<div class="wrap-input100 validate-input">
+						<span class="label-input100">Telefona numurs</span>
+						<input class="input100" type="text" name="name" placeholder="Jūsu telefona numurs..." id="kontakti_tel">
+						<span class="focus-input100"></span>
+				</div>
 
 					<h2>Konts</h2>
 
@@ -153,8 +157,6 @@
 							  </div>
 							</div>
 						  </div>
-                
-
 		</div>
 	</div>
 
