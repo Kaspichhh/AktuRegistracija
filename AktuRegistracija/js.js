@@ -80,6 +80,10 @@ function nosutam_datus()
 }
 
 function get_all_fields() {
+    var currentDate = new Date()
+    var day = currentDate.getDate()
+    var month = currentDate.getMonth() + 1
+    var year = currentDate.getFullYear()
     var dict = {};
     dict[0] = document.getElementById("pasakuma_nosaukums").value;
     dict[1] = document.getElementById("pasakuma_datums").value;
@@ -96,7 +100,8 @@ function get_all_fields() {
     dict[12] = document.getElementById("date_of_purchase").value;
     dict[13] = document.getElementById("Select1").value;
     dict[14] = document.getElementById("tirdz_viet_nos").value;
-    dict[15]= document.getElementById("other_info").value;
+    dict[15] = document.getElementById("other_info").value; 
+    dict[16] = day + "-" + month + "-" + year;
     return dict;
 }
 

@@ -63,7 +63,7 @@ public partial class _Default : System.Web.UI.Page
             //This is my connection string i have assigned the database file address path  
             string MyConnection2 = "server=localhost; port=3306; database=akturegistracijadb; username=root; password=qwerty123; SslMode=none";
             //This is my insert query in which i am taking input from the user through windows forms  
-            string Query = "INSERT INTO aktudati (`Pasakuma Nosaukums`,`Pasakuma Datums`,`Vards Uzvards`,`Personas Kods`,`Epasts`,`Telefona NR`,`Bankas Konts`,`Swift Kods`,`Bankas Nosaukums`,`Biletes Cena`,`Bilesu ID`,`Bilesu Veidlapas Nummuri`,`Pirkuma Datums`,`Iegades vieta`,`Tirdzniecibas vieta`,`Cits info`,`Statuss`) VALUES (" + "'" + saraksts["0"] + "'," + "'" + saraksts["1"] + "'," + "'" + saraksts["2"] + "'," + "'" + saraksts["3"] + "'," + "'" + saraksts["4"] + "'," + "'" + saraksts["5"] + "'," + "'" + saraksts["6"] + "'," + "'" + saraksts["7"] + "'," + "'" + saraksts["8"] + "'," + "'" + saraksts["9"] + "'," + "'" + saraksts["10"] + "'," + "'" + saraksts["11"] + "'," + "'" + saraksts["12"] + "'," + "'" + saraksts["13"] + "'," + "'" + saraksts["14"] + "'," + "'" + saraksts["15"] + "'," + "'Neapstrādāts');";
+            string Query = "INSERT INTO aktudati (`GUID`,`Pasakuma Nosaukums`,`Pasakuma Datums`,`Vards Uzvards`,`Personas Kods`,`Epasts`,`Telefona NR`,`Bankas Konts`,`Swift Kods`,`Bankas Nosaukums`,`Biletes Cena`,`Bilesu ID`,`Bilesu Veidlapas Nummuri`,`Pirkuma Datums`,`Iegades vieta`,`Tirdzniecibas vieta`,`Cits info`,`Aizpildisanas datums`,`Statuss`) VALUES (" + "'"+ Guid.NewGuid() + "'" + ",'" + saraksts["0"] + "'," + "'" + saraksts["1"] + "'," + "'" + saraksts["2"] + "'," + "'" + saraksts["3"] + "'," + "'" + saraksts["4"] + "'," + "'" + saraksts["5"] + "'," + "'" + saraksts["6"] + "'," + "'" + saraksts["7"] + "'," + "'" + saraksts["8"] + "'," + "'" + saraksts["9"] + "'," + "'" + saraksts["10"] + "'," + "'" + saraksts["11"] + "'," + "'" + saraksts["12"] + "'," + "'" + saraksts["13"] + "'," + "'" + saraksts["14"] + "'," + "'" + saraksts["15"] + "'," + "'" + saraksts["16"] + "'," + "'Neapstrādāts');";
             //This is  MySqlConnection here i have created the object and pass my connection string
             MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
             //This is command class which will handle the query and connection object.  
@@ -97,11 +97,6 @@ public partial class _Default : System.Web.UI.Page
            Regex re = new Regex(@"^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$", RegexOptions.IgnoreCase);
            bool a = re.IsMatch(inputEmail);
        return a; 
-    }
-   
-    public static void createWord_doc()
-    {
-
     }
 
     public static bool SendEmail(string email, string towho) 

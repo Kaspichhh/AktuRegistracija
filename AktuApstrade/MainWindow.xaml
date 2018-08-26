@@ -1,0 +1,39 @@
+﻿<Window x:Class="AktuApstrade.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AktuApstrade"
+        mc:Ignorable="d"
+        Title="Aktu Apstrade" Height="437.2" Width="684.8" ResizeMode="NoResize">
+    <Grid Background="#FFD4CFCF">
+        <TextBox x:Name="lietotajs_textbox" Margin="262,0,0,157.2" TextWrapping="Wrap" Cursor="Hand" RenderTransformOrigin="0.5,0.5" TextChanged="lietotajs_textbox_TextChanged" TabIndex="0" HorizontalAlignment="Left" Width="244" Height="28" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="14" VerticalContentAlignment="Center">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+            <TextBox.Effect>
+                <DropShadowEffect ShadowDepth="1" Opacity="0.4"/>
+            </TextBox.Effect>
+        </TextBox>
+        <Label x:Name="lietotajs_label" Content="Lietotājvārds" Margin="103,0,0,157.2" FontWeight="Bold" RenderTransformOrigin="0.088,0.308" FontSize="14" FontFamily="Verdana" HorizontalAlignment="Left" Width="154" Height="28" VerticalAlignment="Bottom" HorizontalContentAlignment="Right"/>
+        <Label x:Name="parole_label" Content="Parole" Margin="103,0,0,124.2" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Width="154" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Right"/>
+        <Button x:Name="login_button" Content="Ielogoties" Margin="275,0,0,73.2" IsEnabled="False" TabIndex="2" Click="login_button_Click" FontFamily="Verdana" FontWeight="Bold" Cursor="Hand" HorizontalAlignment="Left" Width="171" Height="46" VerticalAlignment="Bottom">
+            <Button.Effect>
+                <DropShadowEffect ShadowDepth="1" Direction="80" Opacity="0.2"/>
+            </Button.Effect>
+        </Button>
+        <Image Margin="196,0,0,219.2" Source="Images/bilesu_serviss.png" Height="128" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="311"/>
+        <PasswordBox x:Name="passwordbox" Margin="262,0,0,124.2" PasswordChanged="passwordbox_PasswordChanged" TabIndex="1" HorizontalAlignment="Left" Width="244" Height="28" VerticalAlignment="Bottom" FontFamily="Verdana" FontSize="14" VerticalContentAlignment="Center">
+            <PasswordBox.Effect>
+                <DropShadowEffect Opacity="0.4" ShadowDepth="1"/>
+            </PasswordBox.Effect>
+        </PasswordBox>
+        <TextBlock x:Name="wrongPasswordInfo" Margin="217,358,79.4,10.2" TextWrapping="Wrap" Text="Parole vai Lietotājvārds nav pareizi!" FontFamily="Verdana" FontWeight="Bold" IsEnabled="False" FontSize="16"  Foreground="Red" TextDecorations="{x:Null}" Visibility="Hidden"/>
+
+    </Grid>
+</Window>
