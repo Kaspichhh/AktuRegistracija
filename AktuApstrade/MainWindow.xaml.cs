@@ -41,38 +41,6 @@ namespace AktuApstrade
             }
         } 
 
-        private void checkuser(string lietotajs)
-        {
-            Dictionary<string,string> dbresponse = new Dictionary<string, string>();
-            try
-            {
-                string MyConnection2 = "server=localhost; port=3306; database=aktuapstrade; username=root; password=qwerty123; SslMode=none";
-                string Query = "SELECT `password` FROM `users` WHERE `username` = " +"'" +  lietotajs + "'";
-                MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
-                MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
-                MySqlDataReader MyReader2;
-                MyConn2.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     
-                MyReader2.Read(); 
-                string a = MyReader2.GetString("password"); 
-                if (MyReader2.GetString("password") == this.passwordbox.Password.ToString())
-                {
-                    UserWindowsView userWindowsView = new UserWindowsView();
-                    userWindowsView.Show();
-                    this.Close();
-                }
-                else
-                {
-                    this.wrongPasswordInfo.Visibility = Visibility.Visible;
-                }
-                MyConn2.Close();
-            }
-            catch (Exception e)
-            {
-                var errors = e;
-            }
-        }
-
         private void lietotajs_textbox_TextChanged(object sender, TextChangedEventArgs e)
         {
             isfilled();
@@ -85,7 +53,23 @@ namespace AktuApstrade
 
         private void login_button_Click(object sender, RoutedEventArgs e)
         {
-            checkuser(this.lietotajs_textbox.Text.ToString());
+            if(passwordHashing.isPasswordvalid(this.lietotajs_textbox.Text.ToString(), this.passwordbox.Password.ToString()) == true)
+            {
+                UserWindowsView userWindowsView = new UserWindowsView();
+                userWindowsView.Show();
+                this.Close();
+            }
+            else
+            {
+                this.wrongPasswordInfo.Visibility = Visibility.Visible;
+                this.passwordbox.Clear();
+            }
+        }
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+                this.DragMove();
         }
     }
 }

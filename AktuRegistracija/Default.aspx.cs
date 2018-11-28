@@ -129,7 +129,7 @@ public partial class _Default : System.Web.UI.Page
             //Part where message is sent
             var client = new SmtpClient();
             client.Connect("smtp.spx.lv", 465, true);
-            client.Authenticate("kaspars@bilesuserviss.lv", "PAROLE");
+            client.Authenticate("kaspars@bilesuserviss.lv", "Kz2017");
             client.Send(message);
             client.Disconnect(true);
             return true;

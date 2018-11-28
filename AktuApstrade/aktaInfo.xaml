@@ -5,54 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AktuApstrade"
         mc:Ignorable="d"
-        Title="aktaInfo" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown">
+        Title="aktaInfo" Height="450" Width="800" AllowsTransparency="True" WindowStyle="None" MouseDown="Window_MouseDown" Icon="Images/icon.ico">
     <Grid Background="#FFF9F9F9">
+        <Grid.Effect>
+            <DropShadowEffect/>
+        </Grid.Effect>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Label Content="Informācija par biļetēm" HorizontalAlignment="Left" Margin="204,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Verdana"/>
-        <TextBox x:Name="id_text" HorizontalAlignment="Left" Height="23" Margin="208,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-        <TextBox x:Name="cena_text" HorizontalAlignment="Left" Height="23" Margin="208,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+        <TextBox x:Name="id_text" HorizontalAlignment="Left" Height="23" Margin="208,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="8"/>
+        <TextBox x:Name="cena_text" HorizontalAlignment="Left" Height="23" Margin="208,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="7"/>
         <Label Content="Biļetes cena" HorizontalAlignment="Left" Margin="205,34,0,0" VerticalAlignment="Top"/>
         <Label HorizontalAlignment="Left" Margin="204,82,0,0" VerticalAlignment="Top" Content="Biļetes ID numurs"/>
-        <TextBox x:Name="bil_id_nr" HorizontalAlignment="Left" Height="23" Margin="208,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+        <TextBox x:Name="bil_id_nr" HorizontalAlignment="Left" Height="23" Margin="208,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="9"/>
         <Label HorizontalAlignment="Left" Margin="204,131,0,0" VerticalAlignment="Top" Content="Biļetes veidlapas numurs"/>
-        <TextBox x:Name="ieg_viet_text" HorizontalAlignment="Left" Height="23" Margin="386,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" RenderTransformOrigin="0.366,0.158"/>
-        <TextBox x:Name="pirk_dat_text" HorizontalAlignment="Left" Height="23" Margin="386,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+        <TextBox x:Name="ieg_viet_text" HorizontalAlignment="Left" Height="23" Margin="386,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" RenderTransformOrigin="0.366,0.158" TabIndex="11"/>
+        <TextBox x:Name="pirk_dat_text" HorizontalAlignment="Left" Height="23" Margin="386,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="10"/>
         <Label Content="Pirkuma datums" HorizontalAlignment="Left" Margin="386,34,0,0" VerticalAlignment="Top"/>
         <Label HorizontalAlignment="Left" Margin="386,82,0,0" VerticalAlignment="Top" Content="Iegādes vieta"/>
-        <TextBox x:Name="tirdz_punkta_text" HorizontalAlignment="Left" Height="23" Margin="386,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+        <TextBox x:Name="tirdz_punkta_text" HorizontalAlignment="Left" Height="23" Margin="386,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="12"/>
         <Label HorizontalAlignment="Left" Margin="386,131,0,0" VerticalAlignment="Top" Content="Tirdzniecības punkta nosaukums"/>
-        <TextBox x:Name="other_info_text" HorizontalAlignment="Left" Height="67" Margin="208,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="351" IsReadOnly="True"/>
+        <TextBox x:Name="other_info_text" HorizontalAlignment="Left" Height="67" Margin="208,214,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="351" IsReadOnly="True" TabIndex="13"/>
         <Label Content="Cita informācija no pircēja" HorizontalAlignment="Left" Margin="208,183,0,0" VerticalAlignment="Top"/>
         <Grid x:Name="Konta_grid" HorizontalAlignment="Left" Margin="568,0,0,-0.4" Width="232" Background="#FFEDEBEB" Height="450" VerticalAlignment="Top">
             <Label Content="Konts" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Verdana"/>
-            <TextBox x:Name="swift_text" HorizontalAlignment="Left" Height="23" Margin="12,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-            <TextBox x:Name="konta_text" HorizontalAlignment="Left" Height="24" Margin="10,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+            <TextBox x:Name="swift_text" HorizontalAlignment="Left" Height="23" Margin="12,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="15"/>
+            <TextBox x:Name="konta_text" HorizontalAlignment="Left" Height="24" Margin="10,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="14"/>
             <Label Content="Bankas konta numurs" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top"/>
             <Label HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Content="Bankas swift kods"/>
-            <TextBox x:Name="bank_nos_text" HorizontalAlignment="Left" Height="23" Margin="10,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+            <TextBox x:Name="bank_nos_text" HorizontalAlignment="Left" Height="23" Margin="10,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="16"/>
             <Label HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Content="Bankas nosaukums" Height="26"/>
             <Button x:Name="aizvert_button" Content="Aizvert" HorizontalAlignment="Left" Margin="111,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="aizvert_button_Click"/>
+            <Button x:Name="upload_button" Content="Saglabāt" HorizontalAlignment="Left" Margin="5,380,0,0" VerticalAlignment="Top" Width="101" Height="30" Click="upload_button_Click" Visibility="Hidden"/>
         </Grid>
         <Grid x:Name="info_grid" HorizontalAlignment="Left" Height="450" VerticalAlignment="Top" Width="203" Background="#FFEDEBEB" Margin="0,0,0,-0.4">
             <Label Content="Informācija par pasākumu" HorizontalAlignment="Left" Margin="15,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Verdana"/>
-            <TextBox x:Name="pas_dat_text" HorizontalAlignment="Left" Height="23" Margin="18,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-            <TextBox x:Name="pas_nos_text" HorizontalAlignment="Left" Height="23" Margin="18,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+            <TextBox x:Name="pas_dat_text" HorizontalAlignment="Left" Height="23" Margin="18,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="2"/>
+            <TextBox x:Name="pas_nos_text" HorizontalAlignment="Left" Height="23" Margin="18,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="1"/>
             <Label Content="Pasākuma Nosaukums" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" FontFamily="Verdana" FontSize="11"/>
             <Label HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Content="Pasākuma Datums"/>
             <Label Content="Informācija par pircēju" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" FontWeight="Bold" FontFamily="Verdana"/>
-            <TextBox x:Name="personas_kods_text" HorizontalAlignment="Left" Height="23" Margin="18,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-            <TextBox x:Name="vards_uzvards_text" HorizontalAlignment="Left" Height="23" Margin="18,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+            <TextBox x:Name="personas_kods_text" HorizontalAlignment="Left" Height="23" Margin="18,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="4"/>
+            <TextBox x:Name="vards_uzvards_text" HorizontalAlignment="Left" Height="23" Margin="18,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="3"/>
             <Label Content="Vārds/Uzvārds" HorizontalAlignment="Left" Margin="18,160,0,0" VerticalAlignment="Top"/>
             <Label HorizontalAlignment="Left" Margin="18,209,0,0" VerticalAlignment="Top" Content="Personas Kods"/>
-            <TextBox x:Name="tel_tex" HorizontalAlignment="Left" Height="23" Margin="18,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-            <TextBox x:Name="mail_text" HorizontalAlignment="Left" Height="23" Margin="18,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
+            <TextBox x:Name="tel_tex" HorizontalAlignment="Left" Height="23" Margin="18,343,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="6"/>
+            <TextBox x:Name="mail_text" HorizontalAlignment="Left" Height="23" Margin="18,289,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" TabIndex="5"/>
             <Label Content="E-pasts" HorizontalAlignment="Left" Margin="18,263,0,0" VerticalAlignment="Top"/>
             <Label HorizontalAlignment="Left" Margin="18,317,0,0" VerticalAlignment="Top" Content="Telefona Nr."/>
             <TextBox x:Name="guid_text" HorizontalAlignment="Left" Height="23" Margin="18,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" Visibility="Hidden"/>
-            <TextBox x:Name="aizpildisanas_datums_text" HorizontalAlignment="Left" Height="23" Margin="18,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True"/>
-            <Label HorizontalAlignment="Left" Margin="18,368,0,0" VerticalAlignment="Top" Content="Aizpildīšanas datums" FontWeight="Bold"/>
+            <TextBox x:Name="aizpildisanas_datums_text" HorizontalAlignment="Left" Height="23" Margin="18,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="173" IsReadOnly="True" IsTabStop="False"/>
+            <Label x:Name="aizpildisanas_label" HorizontalAlignment="Left" Margin="18,368,0,0" VerticalAlignment="Top" Content="Aizpildīšanas datums" FontWeight="Bold"/>
         </Grid>
 
         <Grid x:Name="control_grid" HorizontalAlignment="Left" Height="116" Margin="568,305,0,0" VerticalAlignment="Top" Width="225">

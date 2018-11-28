@@ -5,17 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AktuApstrade"
         mc:Ignorable="d"
-        Title="Aktu apstrāde" Height="532.334" Width="1015.228" Background="#FFD4CFCF" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
+        Title="Aktu apstrāde" Height="532.334" Width="1015.228" Background="#FFD4CFCF" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Icon="Images/icon.ico">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="41*"/>
             <RowDefinition Height="379*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="statusComboBox" Margin="0,0,-0.4,0" VerticalAlignment="Top" Height="40" HorizontalAlignment="Right" Width="120" FontFamily="Verdana" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+        <ComboBox x:Name="statusComboBox" Margin="0,8,9.8,0" FontFamily="Verdana" SelectedIndex="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" RenderTransformOrigin="0.083,0.522" Grid.RowSpan="2" Height="41" VerticalAlignment="Top" HorizontalAlignment="Right" Width="120" SelectionChanged="statusComboBox_SelectionChanged">
             <ComboBoxItem Content="Neapstrādāts"></ComboBoxItem>
             <ComboBoxItem Content="Apstrādāts"></ComboBoxItem>
         </ComboBox>
-        <Button Content="Update" Margin="0,0,119.6,0" VerticalAlignment="Top" Height="41" Grid.RowSpan="2" HorizontalAlignment="Right" Width="90" Click="Button_Click"/>
+        <Button Content="Update" Margin="0,8,134.8,0" VerticalAlignment="Top" Height="41" HorizontalAlignment="Right" Width="90" Click="Button_Click" Grid.RowSpan="2"/>
         <DataGrid x:Name="dataGrid" Margin="10" Grid.Row="1" SelectionMode="Single" CanUserResizeRows="False" FontFamily="Verdana" IsReadOnly="True" MouseDoubleClick="dataGrid_MouseDoubleClick" ColumnWidth="*"></DataGrid>
+        <Button Content="Add new" HorizontalAlignment="Left" Margin="10,8,0,0" VerticalAlignment="Top" Width="90" Height="41" Grid.RowSpan="2" Click="Button_Click_1"/>
     </Grid>
 </Window>

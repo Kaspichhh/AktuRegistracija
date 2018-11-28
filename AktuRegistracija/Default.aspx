@@ -27,7 +27,7 @@
 				<h2>Informācija par pasākumu</h2>
 				<div class="wrap-input100 validate-input" >
 					<span class="label-input100">Pasākuma nosaukums</span>
-					<input class="input100" type="text" name="name" placeholder="Ierakstiet pasākuma nosaukumu..." id="pasakuma_nosaukums">
+					<input class="input100" type="text" name="name" placeholder="Ierakstiet pasākuma nosaukumu..." id="pasakuma_nosaukums" autocomplete="off">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -39,24 +39,24 @@
 				<h2>Informācija par pircēju</h2>
 				<div class="wrap-input100 validate-input">
 						<span class="label-input100">Vārds/Uzvārds</span>
-						<input class="input100" type="text" name="name" placeholder="Ierakstiet savu vārdu un uzvārdu..." id="vards_uzvards">
+						<input class="input100" type="text" name="name" placeholder="Ierakstiet savu vārdu un uzvārdu..." id="vards_uzvards" autocomplete="off">
 						<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input">
 						<span class="label-input100">Personas kods</span>
-						<input class="input100" type="text" name="name" placeholder="Jūsu personas kods..." id="personas_kods">
+						<input class="input100" type="text" name="name" placeholder="Jūsu personas kods..." id="personas_kods" autocomplete="off">
 						<span class="focus-input100"></span>
 				</div>
 				<div class="wrap-input100 validate-input">
 						<span class="label-input100">E-pasts</span>
-						<input class="input100" type="text" name="name" placeholder="Jūsu e-pasts..." id="kontakti_epasts">
+						<input class="input100" type="text" name="name" placeholder="Jūsu e-pasts..." id="kontakti_epasts" autocomplete="off">
 						<span class="focus-input100"></span>
 				</div>
 
                 		<div class="wrap-input100 validate-input">
 						<span class="label-input100">Telefona numurs</span>
-						<input class="input100" type="text" name="name" placeholder="Jūsu telefona numurs..." id="kontakti_tel">
+						<input class="input100" type="text" name="name" placeholder="Jūsu telefona numurs..." id="kontakti_tel" autocomplete="off">
 						<span class="focus-input100"></span>
 				</div>
 
@@ -64,19 +64,19 @@
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Bankas konta numurs</span>
-							<input class="input100" type="text" name="name" placeholder="Jūsu bankas konta numurs..." id="bank_number">
+							<input class="input100" type="text" name="name" placeholder="Jūsu bankas konta numurs..." id="bank_number" autocomplete="off">
 							<span class="focus-input100"></span>
 					</div> 
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Bankas swift kods   </span>
-							<input class="input100" type="text" name="name" placeholder="Jūsu bankas swift kods..." id="swift_code">
+							<input class="input100" type="text" name="name" placeholder="Jūsu bankas swift kods..." id="swift_code" autocomplete="off">
 							<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Bankas nosaukums</span>
-							<input class="input100" type="text" name="name" placeholder="Jūsu bankas nosaukums..." id="bank_name">
+							<input class="input100" type="text" name="name" placeholder="Jūsu bankas nosaukums..." id="bank_name" autocomplete="off">
 							<span class="focus-input100"></span>
 					</div> 
 
@@ -84,20 +84,20 @@
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Biļetes cena</span>
-							<input class="input100" type="text" name="name" placeholder="Biļetes cena..." id="ticket_price">
+							<input class="input100" type="text" name="name" placeholder="Biļetes cena..." id="ticket_price" autocomplete="off">
 							<span class="focus-input100"></span>
 					</div> 
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Biļetes ID numurs</span>
-							<input class="input100" type="text" name="name" placeholder="Biļetes ID numurs..." id="id_numbers" onfocus="focusFunction_ID()" onblur="blurFunction_ID()"> 
+							<input autocomplete="off" class="input100" type="text" name="name" placeholder="Biļetes ID numurs..." id="id_numbers" onfocus="focusFunction_ID()" onblur="blurFunction_ID()"> 
                             <span class="info" id="bilesu_id_info" style="display:none">ID numurs – astoņu vai deviņu melnas krāsas ciparu numurs biļetes augšējās malas kreisajā pusē</span>
 							<span class="focus-input100"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input">
 							<span class="label-input100">Biļetes veidlapas numurs</span>
-							<input class="input100" type="text" name="name" placeholder="Biļetes veidlapas numurs..." id="ticket_numbers" onfocus="focusFunction_VEID()" onblur="blurFunction_VEID()">
+							<input autocomplete="off" class="input100" type="text" name="name" placeholder="Biļetes veidlapas numurs..." id="ticket_numbers" onfocus="focusFunction_VEID()" onblur="blurFunction_VEID()">
 						    <span class="info" id="bilesu_veid_info" style="display:none">Biļetes veidlapas numurs biļetei, kas pirkta kasē –  septiņu melnas (iespējams arī zelta vai sarkanas) krāsas ciparu numurs biļetes apakšējās malas kreisajā pusē</span>	
                         <span class="focus-input100"></span>
 					</div>
@@ -121,12 +121,12 @@
 
 					<div class="wrap-input100 validate-input" id="tirdzniecibas_vieta_lauks" style="display:none">
 						<span class="label-input100">Tirdzniecības punkta nosaukums</span>
-						<input class="input100" type="text" name="name" id="tirdz_viet_nos" placeholder="Tirdzniecības vietas nosaukums...">
+						<input class="input100" type="text" name="name" id="tirdz_viet_nos" placeholder="Tirdzniecības vietas nosaukums..." autocomplete="off">
 						<span class="focus-input100"></span>
 					</div>
 					
 
-				<div class="wrap-input100 validate-input" data-validate = "Message is required">
+				<div class="wrap-input100 validate-input">
 					<span class="label-input100">Cita informācija no pircēja</span>
 					<textarea class="input100" name="message" placeholder="Rēķina Nr:..." id="other_info"></textarea>
 					<span class="focus-input100"></span>

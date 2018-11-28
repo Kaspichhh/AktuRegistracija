@@ -27,10 +27,23 @@ namespace AktuApstrade
         string docxPath = System.IO.Path.GetDirectoryName(exePath) + "\\Files\\result.docx";
         Document document = null;
 
-        public aktaInfo(string contentGUID)
+        public aktaInfo(string contentGUID, bool ediatable)
         {
             InitializeComponent();
-            fillFields(contentGUID);
+            if(ediatable == true)
+            {
+                this.drukat_button.Visibility = Visibility.Hidden;
+                this.saglabat_button.Visibility = Visibility.Hidden;
+                this.upload_button.Visibility = Visibility.Visible;
+                this.aizpildisanas_datums_text.Visibility = Visibility.Hidden;
+                this.aizpildisanas_label.Visibility = Visibility.Hidden;
+                ChangeToEditable();
+            }
+            else
+            {
+                fillFields(contentGUID);
+            }
+            
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -104,6 +117,10 @@ namespace AktuApstrade
                 MySqlDataReader MyReader2;
                 MyConn2.Open();
                 MyReader2 = MyCommand2.ExecuteReader();
+
+
+
+
                 MyConn2.Close();
             }
             else
@@ -177,6 +194,64 @@ namespace AktuApstrade
             {
                 MessageBox.Show(e.ToString());
             }
+        }
+
+        private void upload_button_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                DateTime dateTime = DateTime.UtcNow.Date;
+                string connection_guid = this.guid_text.Text;
+                string MyConnection2 = "server=localhost; port=3306; database=akturegistracijadb; username=root; password=qwerty123; SslMode=none";
+                MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+                if (this.apstradats_checkbox.IsChecked == true)
+                {
+                    string query = "INSERT INTO aktudati (`GUID`,`Pasakuma Nosaukums`,`Pasakuma Datums`,`Vards Uzvards`,`Personas Kods`,`Epasts`,`Telefona NR`,`Bankas Konts`,`Swift Kods`,`Bankas Nosaukums`,`Biletes Cena`,`Bilesu ID`,`Bilesu Veidlapas Nummuri`,`Pirkuma Datums`,`Iegades vieta`,`Tirdzniecibas vieta`,`Cits info`,`Aizpildisanas datums`,`Statuss`) VALUES (" + "'" + connection_guid + "'" + ",'" + this.pas_nos_text.Text + "'," + "'" + this.pas_dat_text.Text + "'," + "'" + this.vards_uzvards_text.Text + "'," + "'" + this.personas_kods_text.Text + "'," + "'" + this.mail_text.Text + "'," + "'" + this.tel_tex.Text + "'," + "'" + this.konta_text.Text + "'," + "'" + this.swift_text.Text + "'," + "'" + this.bank_nos_text.Text + "'," + "'" + this.cena_text.Text + "'," + "'" + this.id_text.Text + "'," + "'" + this.bil_id_nr.Text + "'," + "'" + this.pirk_dat_text.Text + "'," + "'" + this.ieg_viet_text.Text + "'," + "'" + this.tirdz_punkta_text.Text + "'," + "'" + this.other_info_text.Text + "'," + "'" + dateTime.ToString("dd/MM/yyyy") + "'," + "'Apstrādāts');";
+                    MySqlCommand MyCommand2 = new MySqlCommand(query, MyConn2);
+                    MySqlDataReader MyReader2;
+                    MyConn2.Open();
+                    MyReader2 = MyCommand2.ExecuteReader();
+                    MyConn2.Close();
+                    MessageBox.Show("Dati veiksmīgi pievienoti");
+                    this.Close();
+
+
+                }
+                else
+                {
+                    string query = "INSERT INTO aktudati (`GUID`,`Pasakuma Nosaukums`,`Pasakuma Datums`,`Vards Uzvards`,`Personas Kods`,`Epasts`,`Telefona NR`,`Bankas Konts`,`Swift Kods`,`Bankas Nosaukums`,`Biletes Cena`,`Bilesu ID`,`Bilesu Veidlapas Nummuri`,`Pirkuma Datums`,`Iegades vieta`,`Tirdzniecibas vieta`,`Cits info`,`Aizpildisanas datums`,`Statuss`) VALUES (" + "'" + connection_guid + "'" + ",'" + this.pas_nos_text.Text + "'," + "'" + this.pas_dat_text.Text + "'," + "'" + this.vards_uzvards_text.Text + "'," + "'" + this.personas_kods_text.Text + "'," + "'" + this.mail_text.Text + "'," + "'" + this.tel_tex.Text + "'," + "'" + this.konta_text.Text + "'," + "'" + this.swift_text.Text + "'," + "'" + this.bank_nos_text.Text + "'," + "'" + this.cena_text.Text + "'," + "'" + this.id_text.Text + "'," + "'" + this.bil_id_nr.Text + "'," + "'" + this.pirk_dat_text.Text + "'," + "'" + this.ieg_viet_text.Text + "'," + "'" + this.tirdz_punkta_text.Text + "'," + "'" + this.other_info_text.Text + "'," + "'" + dateTime.ToString("dd/MM/yyyy")  + "'," + "'Neapstrādāts');";
+                    MySqlCommand MyCommand2 = new MySqlCommand(query, MyConn2);
+                    MySqlDataReader MyReader2;
+                    MyConn2.Open();
+                    MyReader2 = MyCommand2.ExecuteReader();
+                    MyConn2.Close();
+                    MessageBox.Show("Dati veiksmīgi pievienoti");
+                    this.Close();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Dati netika pievienoti! Errors: " + err.ToString());
+            }
+        }
+        private void ChangeToEditable()
+        {
+            this.pas_nos_text.IsReadOnly = false;
+            this.pas_dat_text.IsReadOnly = false;
+            this.vards_uzvards_text.IsReadOnly = false;
+            this.personas_kods_text.IsReadOnly = false;
+            this.mail_text.IsReadOnly = false;
+            this.tel_tex.IsReadOnly = false;
+            this.cena_text.IsReadOnly = false;
+            this.id_text.IsReadOnly = false;
+            this.bil_id_nr.IsReadOnly = false;
+            this.other_info_text.IsReadOnly = false;
+            this.pirk_dat_text.IsReadOnly = false;
+            this.ieg_viet_text.IsReadOnly = false;
+            this.tirdz_punkta_text.IsReadOnly = false;
+            this.konta_text.IsReadOnly = false;
+            this.swift_text.IsReadOnly = false;
+            this.bank_nos_text.IsReadOnly = false;
         }
     }
 }

@@ -47,7 +47,7 @@ namespace AktuApstrade
             loadData(this.statusComboBox.Text.ToString());
         }
 
-        private void loadData(string statuss)
+        public void loadData(string statuss)
         {
             try
             {
@@ -82,9 +82,27 @@ namespace AktuApstrade
                 {
                     DataRowView row = dataGrid.SelectedItem as DataRowView;
                     string targetGUID = row.Row.ItemArray[6].ToString();
-                    aktaInfo info = new aktaInfo(targetGUID);
+                    aktaInfo info = new aktaInfo(targetGUID, false);
                     info.Show();
                 }
+            }
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            aktaInfo new_info = new aktaInfo(Guid.NewGuid().ToString(), true);
+            new_info.Show(); 
+        }
+
+        private void statusComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                //loadData(statusComboBox.Text.ToString());
+            }
+            catch (Exception errors)
+            {
+                MessageBox.Show(errors.ToString());
             }
         }
     }
